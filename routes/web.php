@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DiscountController;
+use App\Models\Discount;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [DiscountController::class, 'index'])->name('discounts');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -31,6 +31,6 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-Route::get('/discounts', function () {
-    return view('discounts');
-});
+// Route::get('/discounts', function () {
+//     return view('discounts');
+// })->name('discounts');

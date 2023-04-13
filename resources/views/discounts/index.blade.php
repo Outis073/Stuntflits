@@ -5,31 +5,30 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("Man man man") }}
-                </div>
+    <div class="mx-auto max-w-7xl p-6 lg:p-8">
+        <div class="flex justify-center">
+            <h1 class="text-white">Test</h1>
+        </div>
+
+        <div class="mt-16">
+            <div class="grid grid-cols-1 gap-6 lg:gap-8">
+
+                @unless (count($discounts) == 0)
+
+                    @foreach ($discounts as $discount)
+                        <x-discount-card :discount="$discount" />
+                    @endforeach
+                @else
+                    <p>Geen aanbiedingen gevonden</p>
+                @endunless
+
+
             </div>
         </div>
-    </div>
-
-    <div class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4">
-
-        @unless(count($discounts) == 0)
-       
-        @foreach($discounts as $discount)
-        <x-discount-card :discount="$discount" />
-        @endforeach
-
-        @else
-        <p>Geen aanbiedingen gevonden</p>
-        @endunless 
 
     </div>
 
     <div class="mt-6 p-4">
-        {{$discounts->links()}}
+        {{ $discounts->links() }}
     </div>
 </x-base-layout>

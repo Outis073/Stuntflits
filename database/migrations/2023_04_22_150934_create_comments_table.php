@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('discounts', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description');
-            $table->string('url');
-            $table->string('price');
-            $table->string('oldPrice');
-            $table->string('shop');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('discount_id');
+            $table->text('comment_text');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('discount_id')->references('id')->on('discounts');
         });
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('discounts');
+        Schema::dropIfExists('comments');
     }
 };

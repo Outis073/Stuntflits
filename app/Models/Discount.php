@@ -12,10 +12,15 @@ class Discount extends Model
         protected $fillable = [
         'title',
         'description',
+        'image',
+        'old_price',
+        'new_price',
         'url',
-        'price',
-        'oldPrice',
-        'shop'
+        'shop_id',
+        'category_id',
+        'user_id',
+        'start_date',
+        'end_date'
     ];
 
 }

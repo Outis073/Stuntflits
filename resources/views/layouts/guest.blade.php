@@ -17,6 +17,7 @@
 </head>
 
 <body class="font-sans text-gray-900 antialiased">
+    @include('layouts.navigation')
     <div class="flex min-h-screen flex-col items-center bg-gray-100 pt-6 dark:bg-gray-900 sm:justify-center sm:pt-0">
         <div>
             <a href="/">
@@ -30,5 +31,6 @@
         </div>
     </div>
 </body>
+
 
 </html>

@@ -24,18 +24,16 @@ class DatabaseSeeder extends Seeder
             'title' => 'Eerste Aanbieding',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rutrum turpis vitae libero laoreet, vel tempor magna consectetur. Sed eu augue vel ipsum tempus dapibus.',
             'url' => 'https://google.nl',
-            'price' => '6',
-            'oldPrice' => '12',
-            'shop' => 'Een winkel'
+            'new_price' => '6',
+            'old_price' => '12'
         ]);
 
         Discount::create([
             'title' => 'Tweede Aanbieding',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rutrum turpis vitae libero laoreet, vel tempor magna consectetur. Sed eu augue vel ipsum tempus dapibus.',
             'url' => 'https://bymillie.nl',
-            'price' => '50',
-            'oldPrice' => '177',
-            'shop' => 'Shopppp'
+            'new_price' => '50',
+            'old_price' => '177'
         ]);        
 
     }

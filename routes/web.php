@@ -18,6 +18,16 @@ use App\Models\Discount;
 
 Route::get('/', [DiscountController::class, 'index'])->name('discounts');
 
+// Route::controller(DiscountController::class)->group(function() {
+//     Route::get('/discounts/{discount}', 'show')->name('discounts.show');
+//     Route::get('/discounts/{discount}/edit', 'edit')->name('discounts.edit');
+// });
+
+Route::resource('discounts', DiscountController::class)->only([
+    'index', 'show', 'create', 'edit', 'store', 'update', 'destroy'
+]);
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -29,8 +39,3 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-
-
-// Route::get('/discounts', function () {
-//     return view('discounts');
-// })->name('discounts');
